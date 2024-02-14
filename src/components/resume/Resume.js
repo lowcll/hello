@@ -4,9 +4,6 @@ import Education from './Education'
 import Skills from './Skills'
 import Experience from './Experience'
 
-
-
-
 const Resume = () => {
     const [educationData, setEducationData] = useState(true);
     const [skillData, setSkillData] = useState(false);
@@ -40,7 +37,7 @@ const Resume = () => {
                     setSkillData(false) &
                     setExperienceData(true)
                     }
-                    className='resumeli'>Experience
+                    className='resumeli'>Experience & Achievements
                 </li>
             </ul>
         </div>
