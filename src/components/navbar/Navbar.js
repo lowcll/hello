@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-scroll'
-import{logo} from "../../assets/index"
+import { logo } from "../../assets/index"
 import { navLinksdata } from '../../constants'
+import { resume } from '../../assets/index'
 
 const Navbar = () => {
     return ( 
@@ -9,12 +10,15 @@ const Navbar = () => {
             <div>
                 <img src={logo} alt="logo" />
             </div>
+            <div className= "text-base font-normal text-black tracking-wide hover:text-designColor duration-300 border-b-[1px] border-b-black">
+                <a href={resume} download="LowellPioquintoResume.pdf">Download My CV</a>
+            </div>
             <div>
                 <ul className='flex items-center gap-10'>
                     {
                         navLinksdata.map(({_id, title, link})=>(
                             <li 
-                                className= "text-base font-normal text-black tracking-wide curson-pointer hover:text-designColor duration-300"
+                                className= "text-base font-normal text-black tracking-wide hover:text-designColor duration-300"
                                 key={_id}
                                 >
                                 <Link
