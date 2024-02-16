@@ -1,67 +1,61 @@
-import React from 'react'
-import Title  from '../layouts/Title'
-import {Swiper, SwiperSlide} from 'swiper/react'
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/free-mode'
-import {FreeMode, Pagination} from 'swiper/modules'
-import {RxArrowTopRight} from 'react-icons/rx'
-import { ServiceData } from '../../constants'
+import React, { useState } from 'react';
+import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
+import { RxDotFilled } from 'react-icons/rx';
+import Title from '../layouts/Title';
+import { img1 } from '../../assets';
+import { img2 } from '../../assets';
+import { img3 } from '../../assets';
 
 
-const Projects = () => {
+function Projects() {
+  const slides = [
+    {
+      url: img1,
+      description: 'My personal portfolio you are currently looking at!',
+      githubUrl: 'https://github.com/your-github-username/project-1'
+    },
+    {
+      url: img2,
+      description: 'A web application I spearheaded development for. Developed a dynamic and interactive review page.',
+      githubUrl: 'https://github.com/your-github-username/project-2'
+    },
+    {
+        url: img3,
+        description: 'Primary programmer for all JS functionality of this web application',
+        githubUrl: 'https://github.com/your-github-username/project-2'
+      },
+    // Add additional slides with local images, descriptions, and GitHub URLs
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => setCurrentIndex(currentIndex === 0 ? slides.length - 1 : currentIndex - 1);
+  const nextSlide = () => setCurrentIndex(currentIndex === slides.length - 1 ? 0 : currentIndex + 1);
+  const goToSlide = (slideIndex) => setCurrentIndex(slideIndex);
+
   return (
-    <section
-        id="projects"
-        className='w-full py-20 border-b-[1px] border-b-black'
-    >
-    <div className='flex justify-center items-center text-center'>
-        <Title 
-            title="VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK"
-            des="My Projects"
-        />
-    </div>
-        <div className='flex items-center justify-center flex-col pt-20 pb-20'>
-            <Swiper
-                breakpoints={{
-                    340: {
-                        slidesPerView: 2,
-                        spaceBetween: 15
-                    },
-                    700: {
-                        slidesPerView: 3,
-                        spaceBetween: 15
-                    }
-                }}
-            
-                freeMode={true}
-                pagination={{
-                    clickable: true
-                }}
-                modules={[FreeMode, Pagination]}
-                className='max-w-[80%] lg:max-w-[90%]'
-            >
-                {ServiceData.map((item) => (
-                    <SwiperSlide key={item.title}>
-                    <div className="flex flex-col gap-6 group relative text-white rounded-xl px-6 py-8 h-[250px] w-[215px] lg:h-[600px] lg:w-[350px] overflow-hidden cursor-pointer bg-gradient-to-r from-bodyColor to-{#8C8C8C} group hover:bg-gradient-to-b hover:from-grey hover:to-[#C9CAC9] transition-colors duration-100">
-                        <div
-                            className="absolute inset-0 bg-cover bg-center"
-                            style={{ backgroundImage: `url(${item.backgroundImage})` }}
-                        />
-                        <div className="absolute inset-0 bg-black opacity-10 group-hover:opacity-50" />
-                        <div className="relative flex flex-col gap-3">
-                            <item.icon className="text-blue-600 group-hover:text-blue-400 w-[32px] h-[32px]" />
-                            <h1 className="text-xl lg:text-2xl">{item.title} </h1>
-                            <p className="lg:text-[18px]">{item.content} </p>
-                        </div>
-                        <RxArrowTopRight className="absolute bottom-5 left-5 w-[35px] h-[35px] text-white group-hover:text-blue-500 group-hover:rotate-45 duration-100" />
-                    </div>
-                </SwiperSlide>
-                            ))}
-            </Swiper>
+    <section id="projects" className='w-full py-20 border-b-[1px] border-b-black'>
+      <div className='flex justify-center items-center text-center'>
+        <Title title="VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK" des="My Projects" />
+      </div>
+      <div className='max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group'>
+        <div
+          style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
+          className='w-full h-full rounded-2xl bg-center bg-cover duration-500 flex flex-col justify-end p-8'
+        >
+          <div className='text-white bg-black/50 p-4 rounded-lg mb-4'>{slides[currentIndex].description}</div>
+          <a href={slides[currentIndex].githubUrl} target="_blank" rel="noopener noreferrer" className='inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>View on GitHub</a>
         </div>
+        <BsChevronCompactLeft className='absolute top-[50%] -translate-y-1/2 left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer' onClick={prevSlide} size={30} />
+        <BsChevronCompactRight className='absolute top-[50%] -translate-y-1/2 right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer' onClick={nextSlide} size={30} />
+        <div className='absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2'>
+          {slides.map((_, index) => (
+            <RxDotFilled key={index} onClick={() => goToSlide(index)} className={`inline-block cursor-pointer ${currentIndex === index ? 'text-white' : 'text-white/50'}`} />
+          ))}
+        </div>
+      </div>
     </section>
-  )
+  );
 }
 
-export default Projects
+export default Projects;
