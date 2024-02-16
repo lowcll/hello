@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 import Title from '../layouts/Title';
-import { img1, img2, img3 } from '../../assets'; // Assuming these are the correct paths
+import { img1, img2, img3 } from '../../assets';
 
 function Projects() {
   const slides = [
@@ -31,6 +31,15 @@ function Projects() {
 
   return (
     <section id="projects" className='w-full py-20 border-b-[1px] border-b-black'>
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .description-text {
+              font-size: 0.75rem; /* Smaller font size on smaller screens */
+            }
+          }
+        `}
+      </style>
       <div className='flex justify-center items-center text-center'>
         <Title title="VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK" des="My Projects" />
       </div>
@@ -40,8 +49,7 @@ function Projects() {
             style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
             className='absolute top-0 left-0 w-full h-full rounded-2xl bg-center bg-cover duration-500 flex flex-col justify-end p-8'
           >
-            {/* Adjusted styling for a more compact and readable description box */}
-            <div className='text-white bg-black/50 p-2 rounded-lg mb-4 max-w-[80%] text-sm'>{slides[currentIndex].description}</div>
+            <div className='text-white bg-black/50 p-2 rounded-lg mb-4 max-w-[80%] description-text'>{slides[currentIndex].description}</div>
             <a href={slides[currentIndex].githubUrl} target="_blank" rel="noopener noreferrer" className='inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded text-xs'>View on GitHub</a>
           </div>
         </div>

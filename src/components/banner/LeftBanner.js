@@ -19,12 +19,12 @@ const LeftBanner = () => {
                 <h1 className='text-3xl lg:text-5xl font-bold text-black'>
                     Hi, I'm <span className="text-designColor capitalize">Lowell Pioquinto</span>
                 </h1>
-                <h2 className="text-2xl lg:text-4xl font-bold text-black">
+                <div style={{ minHeight: '64px' }} className="text-2xl lg:text-4xl font-bold text-black"> {/* Adjusted line */}
                     a <span>{text}</span>
                     <Cursor 
                         cursorColor="#FFFFFF"
                     />
-                </h2>
+                </div>
                 <p className='text-sm lg:text-base font-bodyFont leading-6 tracking-wide'>
                 My passion for technology started when I was 8, communicating back to the Philippines on my dad's radio in our garage. 
                 Over the years, I have become skilled in web development, software engineering, IT, and information systems analysis. 
