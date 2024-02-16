@@ -12,17 +12,17 @@ function Projects() {
     {
       url: img1,
       description: 'My personal portfolio you are currently looking at!',
-      githubUrl: 'https://github.com/your-github-username/project-1'
+      githubUrl: 'https://github.com/lowcll/hello'
     },
     {
       url: img2,
       description: 'A web application I spearheaded development for. Developed a dynamic and interactive review page.',
-      githubUrl: 'https://github.com/your-github-username/project-2'
+      githubUrl: 'https://github.com/lowcll'
     },
     {
         url: img3,
         description: 'Primary programmer for all JS functionality of this web application',
-        githubUrl: 'https://github.com/your-github-username/project-2'
+        githubUrl: 'https://github.com/lowcll'
       },
     // Add additional slides with local images, descriptions, and GitHub URLs
   ];
