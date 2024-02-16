@@ -43,7 +43,7 @@ const Contact = () => {
   return (
     <section id="contact" className="w-full py-10 lg:py-20 border-b-[1px] border-b-black">
       <div className="flex justify-center items-center text-center">
-        <Title title="CONTACT" des="Contact With Me" />
+        <Title title="CONTACT" des="Get in Contact With Me!" />
       </div>
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row justify-between gap-10">

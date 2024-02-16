@@ -8,7 +8,10 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <div className="w-full h-24 sticky top-0 z-50 bg-bodyColor mx-auto flex justify-between items-center px-4 md:px-10 border-b-[1px] cursor-pointer font-titleFont border-b-black">
+        // Ensure the Navbar extends fully across the top with `w-screen` to ensure full width of the screen
+        // `left-0` ensures it aligns to the very left edge of the screen
+        // Consider using `fixed` instead of `sticky` if you want the Navbar to stay at the top even when scrolling
+        <div className="w-screen h-24 fixed top-0 left-0 z-50 bg-bodyColor mx-auto flex justify-between items-center px-4 md:px-10 border-b-[1px] cursor-pointer font-titleFont border-b-black">
             <div className="flex justify-between items-center w-full">
                 <div>
                     <img src={logo} alt="Logo" className="h-12" />

@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 import Title from '../layouts/Title';
-import { img1 } from '../../assets';
-import { img2 } from '../../assets';
-import { img3 } from '../../assets';
-
+import { img1, img2, img3 } from '../../assets'; // Assuming these are the correct paths
 
 function Projects() {
   const slides = [
@@ -20,11 +17,10 @@ function Projects() {
       githubUrl: 'https://github.com/lowcll'
     },
     {
-        url: img3,
-        description: 'Primary programmer for all JS functionality of this web application',
-        githubUrl: 'https://github.com/lowcll'
-      },
-    // Add additional slides with local images, descriptions, and GitHub URLs
+      url: img3,
+      description: 'Primary programmer for all JS functionality of this web application',
+      githubUrl: 'https://github.com/lowcll'
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -38,13 +34,16 @@ function Projects() {
       <div className='flex justify-center items-center text-center'>
         <Title title="VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK" des="My Projects" />
       </div>
-      <div className='max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group'>
-        <div
-          style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-          className='w-full h-full rounded-2xl bg-center bg-cover duration-500 flex flex-col justify-end p-8'
-        >
-          <div className='text-white bg-black/50 p-4 rounded-lg mb-4'>{slides[currentIndex].description}</div>
-          <a href={slides[currentIndex].githubUrl} target="_blank" rel="noopener noreferrer" className='inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>View on GitHub</a>
+      <div className='max-w-[1400px] w-full m-auto py-16 px-4 relative group'>
+        <div className='w-full' style={{ paddingTop: '56.25%', position: 'relative' }}>
+          <div
+            style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
+            className='absolute top-0 left-0 w-full h-full rounded-2xl bg-center bg-cover duration-500 flex flex-col justify-end p-8'
+          >
+            {/* Adjusted styling for a more compact and readable description box */}
+            <div className='text-white bg-black/50 p-2 rounded-lg mb-4 max-w-[80%] text-sm'>{slides[currentIndex].description}</div>
+            <a href={slides[currentIndex].githubUrl} target="_blank" rel="noopener noreferrer" className='inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded text-xs'>View on GitHub</a>
+          </div>
         </div>
         <BsChevronCompactLeft className='absolute top-[50%] -translate-y-1/2 left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer' onClick={prevSlide} size={30} />
         <BsChevronCompactRight className='absolute top-[50%] -translate-y-1/2 right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer' onClick={nextSlide} size={30} />
