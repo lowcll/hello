@@ -16,11 +16,12 @@ const Skills = () => {
           </div>
           <div className='mt-14 flex flex-col gap-6'>
             <SkillItem title="Visual Studio Code" percentage="90%" />
+            <SkillItem title="Visual Studio" percentage="80%" />
             <SkillItem title="R Studio" percentage="85%" />
             <SkillItem title="Databricks" percentage="90%" />
             <SkillItem title="Figma" percentage="75%" />
             <SkillItem title="Adobe Lightroom" percentage="80%" />
-            <SkillItem title="Visual Studio" percentage="80%" />
+            <SkillItem title="Notion" percentage="90%" />
             <SkillItem title="Microsoft Excel" percentage="65%" />
             <SkillItem title="Microsoft Teams" percentage="100%" />
             <SkillItem title="Microsoft Office 365 (PowerPoint, Word, Outlook)" percentage="100%" />

@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import { logo, resume } from "../../assets/index";
+import { MdMenu, MdClose } from 'react-icons/md'; // Ensure react-icons is installed
 import { navLinksdata } from '../../constants';
-import { MdMenu, MdClose } from 'react-icons/md'; // Ensure you have react-icons installed
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        // Ensure the Navbar extends fully across the top with `w-screen` to ensure full width of the screen
-        // `left-0` ensures it aligns to the very left edge of the screen
-        // Consider using `fixed` instead of `sticky` if you want the Navbar to stay at the top even when scrolling
-        <div className="w-screen h-24 fixed top-0 left-0 z-50 bg-bodyColor mx-auto flex justify-between items-center px-4 md:px-10 border-b-[1px] cursor-pointer font-titleFont border-b-black">
+        <div className="w-screen h-24 fixed top-0 left-0 z-50 bg-bodyColor flex justify-between items-center px-4 lg:px-8 border-b-[1px] font-titleFont border-b-black">
             <div className="flex justify-between items-center w-full">
-                <div>
-                    <img src={logo} alt="Logo" className="h-12" />
+                <div className="shrink-0">
+                    <img src={logo} alt="Logo" className="h-12 w-auto" />
                 </div>
-                <div className="hidden md:flex items-center gap-10">
-                    <a href={resume} download="LowellPioquintoResume.pdf" className="text-base font-normal text-black tracking-wide hover:text-designColor duration-300 p-4 no-underline">Download My CV</a>
+                <div className="hidden md:flex items-center gap-6 lg:gap-8 xl:gap-10">
                     {navLinksdata.map(({_id, title, link}) => (
                         <Link
                             key={_id}
@@ -27,20 +23,20 @@ const Navbar = () => {
                             smooth={true}
                             offset={-70}
                             duration={500}
-                            className="text-base font-normal text-black tracking-wide hover:text-designColor duration-300 cursor-pointer"
+                            className="text-sm lg:text-base font-normal text-black tracking-wide hover:text-designColor duration-300 cursor-pointer"
                         >
                             {title}
                         </Link>
                     ))}
+                    <a href={resume} download="LowellPioquintoResume.pdf" className="text-white font-bold py-2 px-4 rounded-full text-sm bg-gradient-to-r from-blue-500 to-teal-400 hover:from-blue-700 hover:to-teal-600 duration-300 no-underline">Download My CV</a>
                 </div>
                 <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                     {isMenuOpen ? <MdClose size={24} /> : <MdMenu size={24} />}
                 </button>
             </div>
             {isMenuOpen && (
-                <div className="flex md:hidden flex-col items-center absolute top-full left-0 w-full bg-bodyColor">
-                    <a href={resume} download="LowellPioquintoResume.pdf" className="text-base font-normal text-black tracking-wide hover:text-designColor duration-300 p-4 no-underline">Download My CV</a>
-                    <ul className="flex flex-col items-center gap-10 p-4">
+                <div className="flex md:hidden flex-col items-center absolute top-full left-0 w-full bg-bodyColor shadow-md">
+                    <ul className="flex flex-col items-center gap-4 p-4">
                         {navLinksdata.map(({_id, title, link}) => (
                             <li key={_id} className="text-base font-normal text-black tracking-wide hover:text-designColor duration-300">
                                 <Link
@@ -55,6 +51,9 @@ const Navbar = () => {
                                 </Link>
                             </li>
                         ))}
+                        <li>
+                        <a href={resume} download="LowellPioquintoResume.pdf" className="text-white font-bold py-2 px-4 rounded-full text-sm bg-gradient-to-r from-blue-500 to-teal-400 hover:from-blue-700 hover:to-teal-600 duration-300 no-underline">Download My CV</a>
+                        </li>
                     </ul>
                 </div>
             )}

@@ -18,7 +18,8 @@ const Resume = () => {
                     des="My Resume"
                 />
             </div>
-            <ul className='w-full flex justify-center text-center gap-4'>
+            {/* Updated class list for responsiveness */}
+            <ul className='w-full flex flex-col sm:flex-row justify-center text-center gap-4'>
                 <li 
                     onClick={() => setActiveSection('education')}
                     className={`resumeli ${activeClass('education')}`}>Education

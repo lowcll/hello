@@ -6,20 +6,19 @@ import Projects from "./components/projects/Projects";
 import Resume from "./components/resume/Resume";
 import Contact from "./components/contact/Contact";
 
-
 function App() {
   return (
-      <div className="w-full h-auto bg-bodyColor text-lightText">
-        <div className="max-w-screen-2xl mx-auto px-16"> 
+      // Ensure the main container is full width and overflow is controlled
+      <div className="min-w-full min-h-screen bg-bodyColor text-lightText overflow-hidden">
+        <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20 2xl:px-24">
           <Navbar />
           <Banner />
           <Features />
           <Projects />
           <Resume />
           <Contact />
-          </div>
+        </div>
       </div>
-
   )
 }
 
