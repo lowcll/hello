@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub, } from "react-icons/fa";
 import { SiHtml5, SiCss3, SiJavascript, SiMysql } from "react-icons/si";
 
 const LeftBanner = () => {

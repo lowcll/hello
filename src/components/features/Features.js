@@ -48,14 +48,14 @@ const Features = () => {
           </motion.div>
           <motion.div variants={itemVariants}>
             <Card 
-              title="Database Builder"
+              title="Database Building"
               des="I enjoy using SQL for creating databases and visualizing data, applying it to projects like developing a university system database. My skills in SQL have allowed me to design and manage databases, execute complex queries, and improve data interaction. This work includes building user-friendly interfaces and ensuring data integrity, making the process of data handling and visualization both efficient and satisfying."
               icon={<FaDatabase />}
             />
           </motion.div>
           <motion.div variants={itemVariants}>
             <Card 
-              title="UX/UI Designer"
+              title="UX/UI Designing"
               des="I'm passionate about UX and UI design, particularly using Figma for crafting digital interfaces and data visualization. With Figma, I delve into creating intuitive, visually compelling designs and prototypes, focusing on user-friendly layouts and interactions. My work emphasizes seamless user experiences, grounded in design best practices and enriched by incorporating data visualization to convey complex information in an accessible way."
               icon={<FaFigma />}
             />

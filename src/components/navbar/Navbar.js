@@ -28,7 +28,7 @@ const Navbar = () => {
                             {title}
                         </Link>
                     ))}
-                    <a href={resume} download="LowellPioquintoResume.pdf" className="text-white font-bold py-2 px-4 rounded-full text-sm bg-gradient-to-r from-blue-500 to-teal-400 hover:from-blue-700 hover:to-teal-600 duration-300 no-underline">Download My CV</a>
+                    <a href={resume} download="LowellPioquintoResume.pdf" className="text-white font-bold py-2 px-4 rounded-full text-sm bg-gradient-to-r from-blue-500 to-teal-400 hover:from-blue-700 hover:to-teal-600 duration-300 no-underline inline-block glow-on-hover">Download My CV</a>
                 </div>
                 <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                     {isMenuOpen ? <MdClose size={24} /> : <MdMenu size={24} />}
@@ -46,6 +46,7 @@ const Navbar = () => {
                                     offset={-70}
                                     duration={500}
                                     onClick={() => setIsMenuOpen(false)}
+                                    className="cursor-pointer"
                                 >
                                     {title}
                                 </Link>

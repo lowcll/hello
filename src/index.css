@@ -16,6 +16,19 @@
     .bgOpacity{
         @apply bg-black bg-opacity-40;
     }
+    .glow-on-hover {
+        transition: all 0.5s ease-in-out;
+      }
+      
+      .glow-on-hover:hover {
+        box-shadow: 
+          0 0 8px rgba(56, 209, 202, 0.6), 
+          0 0 15px rgba(56, 209, 202, 0.7), 
+          0 0 20px rgba(56, 209, 202, 0.8), 
+          0 0 25px rgba(56, 209, 202, 0.9), 
+          0 0 30px rgba(56, 209, 202, 1); /* Lighter Teal Glow */
+        transform: translateY(-2px);
+      }
 }
 
 .active{
