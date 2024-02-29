@@ -8,6 +8,8 @@ import img3 from "./images/projects/image3.jpg"
 import img4 from "./images/projects/image4.jpg"
 import img5 from "./images/projects/image5.jpg"
 import vid3 from "./images/projects/University-Database.mp4"
+import img6 from "./images/projects/image6.jpg"
+import vid2 from "./images/projects/cat-mouse-simulation.gif"
 
 export {
   logo,
@@ -19,5 +21,7 @@ export {
   img3,
   img4,
   img5,
+  img6,
+  vid2,
   vid3,
 };

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import Title from '../layouts/Title';
 // Ensure these imports point to your actual images and videos
-import { img1, img2, img3, img4, img5, vid3 } from '../../assets';
+import { img1, img2, img3, img4, img5, vid3, vid2, img6 } from '../../assets';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useSwipeable } from 'react-swipeable'; 
@@ -66,10 +66,28 @@ function Projects() {
     },
     {
       url: img5,
-      title: 'Slack-Simulator',
+      title: 'Slack Simulator',
       description: 'Created a Chat Room simulator that connects to a port with a valid IP address. Included within this has a members list as well as a history of messages found within the system.',
       githubUrl: 'https://github.com/lowcll/Slack-Simulator',
       languages: ['Java'],
+      webButton: {
+        label: 'Live demo coming soon!',
+        bgColor: 'bg-red-500',
+        hoverColor: 'hover:bg-red-700',
+      },
+    },
+    {
+      url: img6,
+      title: 'Cat and Mouse Simulator',
+      description: 'The blue dots are mice, the yellow/cyan dots are cats, and the red/black zombie-cats. Cats chase mice, and when they catch a mouse, they eat it. If a cat doesn’t eat enough, they turn into a zombie-cat. Zombie-cats chase mice and other cats. They can eat a mouse, but if they eat a cat, that cat turns into a zombie-cat!',
+      githubUrl: 'https://github.com/lowcll/cat-mouse-simulator.git',
+      languages: ['Java'],
+      webButton: {
+        url: vid2,
+        label: 'Watch a live demo!',
+        bgColor: 'bg-green-500',
+        hoverColor: 'hover:bg-green-700',
+      },
     },
   ];
 
@@ -133,7 +151,7 @@ function Projects() {
                     </span>
                   ))}
                 </div>
-                <div className="mt-4 flex justify-left gap-2 sm:gap-4"> {/* Adjust the gap size as needed */}
+                <div className="mt-4 flex justify-left gap-2 sm:gap-4">
                   <a href={slide.githubUrl} target="_blank" rel="noopener noreferrer" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full text-xs sm:text-sm inline-block glow-on-hover">
                     View on GitHub
                   </a>
@@ -147,8 +165,8 @@ function Projects() {
             </div>
           );
         })}
-        <BsChevronCompactLeft className="absolute left-0 text-3xl sm:text-4xl rounded-full text-gray-600 hover:text-gray-800 cursor-pointer z-10" onClick={() => navigateSlide('prev')} />
-        <BsChevronCompactRight className="absolute right-0 text-3xl sm:text-4xl rounded-full text-gray-600 hover:text-gray-800 cursor-pointer z-10" onClick={() => navigateSlide('next')} />
+        <BsChevronCompactLeft className="absolute left-0 text-3xl sm:text-4xl rounded-full text-gray-800 hover:text-gray-900 cursor-pointer z-10" onClick={() => navigateSlide('prev')} />
+        <BsChevronCompactRight className="absolute right-0 text-3xl sm:text-4xl rounded-full text-gray-800 hover:text-gray-900 cursor-pointer z-10" onClick={() => navigateSlide('next')} />
       </div>
     </motion.section>
   );
