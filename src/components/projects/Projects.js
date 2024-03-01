@@ -117,27 +117,32 @@ function Projects() {
 
   const animation = {
     initial: { opacity: 0, y: 50 },
-    animate: { opacity: 1, y: 0, transition: { duration: 2.5 } },
+    animate: { opacity: 1, y: 0, transition: { duration: 1, type: 'spring', stiffness: 50 } },
   };
 
   return (
-    <motion.section
-      id="projects"
-      className="w-full py-10 border-b border-black sm:py-20"
-      ref={ref}
-      initial="initial"
-      animate={inView ? "animate" : "initial"}
-      variants={animation}
-    >
-      <div className="flex justify-center items-center text-center px-4 sm:px-6 lg:px-8 xl:px-10">
+    <section id="projects" className="w-full py-20 border-b border-black sm:py-24">
+      <div className="flex justify-center items-center text-center px-4 sm:px-6 lg:px-8 xl:px-10 mb-8">
         <Title title="VISIT MY PORTFOLIO AND SEND YOUR FEEDBACK" des="My Projects" />
       </div>
-      <div {...handlers} className="max-w-7xl w-full m-auto py-8 px-2 sm:py-16 sm:px-4 lg:px-6 xl:px-8 relative group flex justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-10" >
+      <motion.div
+        {...handlers}
+        className="max-w-7xl w-full m-auto py-8 px-2 sm:py-16 sm:px-4 lg:px-6 xl:px-8 relative group flex justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-10"
+        initial="initial"
+        animate={inView ? "animate" : "initial"}
+        variants={animation}
+        ref={ref}
+        style={{ height: "500px", width: "100%" }} // Fixed size container
+      >
         {[-1, 0, 1].map((position) => {
           const cardIndex = currentIndex + position < 0 ? slides.length + (currentIndex + position) : (currentIndex + position) % slides.length;
           const slide = slides[cardIndex];
+          const cardVariants = {
+            initial: { opacity: 0, y: 50 },
+            animate: { opacity: 1, y: 0, transition: { duration: 1, type: 'spring', stiffness: 50, delay: position * 0.3 } },
+          };
           return (
-            <div key={cardIndex} className={`transition-opacity duration-500 transform ${position === 0 ? 'opacity-100 scale-105' : 'opacity-50 scale-100 blur-sm'} flex-none w-11/12 sm:w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl`}>
+            <motion.div key={cardIndex} variants={cardVariants} className={`transition-opacity duration-500 transform ${position === 0 ? 'opacity-100 scale-105' : 'opacity-50 scale-100 blur-sm'} flex-none w-11/12 sm:w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl`}>
               <img src={slide.url} alt={slide.title} className="w-full h-48 sm:h-56 md:h-64 lg:h-72 object-cover rounded-t-lg" />
               <div className="bg-white shadow-lg rounded-b-lg p-4 sm:p-6 md:p-8">
                 <div className="font-bold text-xl mb-2">{slide.title}</div>
@@ -146,7 +151,7 @@ function Projects() {
                 </p>
                 <div>
                   {slide.languages && slide.languages.map((language, index) => (
-                    <span key={index} className="inline-block bg-gray-200 rounded-full px-2 py-1 text-xs font-semibold text-gray-700 mr-2 mb-2 hover:bg-teal-300 hover:cursor-pointer sm:px-3 sm:py-1 sm:text-sm md:px-3 md:py-1 md:text-sm">
+                    <span key={index} className="inline-block bg-gray-200 rounded-full px-2 py-1 text-xs font-semibold text-gray-700 mr-2 mb-2 hover:bg-teal-300 glow-on-hover hover:cursor-pointer sm:px-3 sm:py-1 sm:text-sm md:px-3 md:py-1 md:text-sm">
                       {language}
                     </span>
                   ))}
@@ -162,13 +167,18 @@ function Projects() {
                   )}
                 </div>
               </div>
-            </div>
+            </motion.div>
           );
         })}
-        <BsChevronCompactLeft className="absolute left-0 text-3xl sm:text-4xl rounded-full text-gray-800 hover:text-gray-900 cursor-pointer z-10" onClick={() => navigateSlide('prev')} />
-        <BsChevronCompactRight className="absolute right-0 text-3xl sm:text-4xl rounded-full text-gray-800 hover:text-gray-900 cursor-pointer z-10" onClick={() => navigateSlide('next')} />
+        <BsChevronCompactLeft className="absolute left-0 text-3xl sm:text-4xl rounded-full text-gray-800 hover:text-gray-900 cursor-pointer z-10 bg-gray-200 p-1" onClick={() => navigateSlide('prev')} />
+        <BsChevronCompactRight className="absolute right-0 text-3xl sm:text-4xl rounded-full text-gray-800 hover:text-gray-900 cursor-pointer z-10 bg-gray-200 p-1" onClick={() => navigateSlide('next')} />
+      </motion.div>
+      <div className="flex justify-center items-center mt-20"> {/* Increased margin-top for more space */}
+        {slides.map((_, index) => (
+          <div key={index} className={`h-4 w-4 rounded-full mx-1 ${index === currentIndex ? 'bg-gray-800' : 'bg-gray-400'}`}></div>
+        ))}
       </div>
-    </motion.section>
+    </section>
   );
 }
 

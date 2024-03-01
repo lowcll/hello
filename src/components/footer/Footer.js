@@ -10,12 +10,12 @@ const Footer = () => {
       <div className="w-full h-full flex flex-col gap-8">
         <img className="w-32" src={logo} alt="logo" />
         <div className='flex gap-4 justify-start'>
-          <a href="https://www.linkedin.com/in/lowell-pioquinto-1520a0238/">
+          <a href="https://www.linkedin.com/in/lowell-pioquinto-1520a0238/" target="_blank" rel="noopener noreferrer">
             <span className="bannerIcon">
               <FaLinkedinIn />
             </span>
           </a>
-          <a href="https://github.com/lowcll">
+          <a href="https://github.com/lowcll" target="_blank" rel="noopener noreferrer">
             <span className="bannerIcon">
                 <FaGithub />
             </span>
